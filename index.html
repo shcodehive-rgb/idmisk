@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صممي كوليكسيون Idmisk الأولى</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
-    <meta property="og:title" content="صممي كوليكسيون Idmisk الأولى بنفسك! 😍">
-<meta property="og:description" content="حنا كنوجدو أروع تشكيلة حجاب. ادخلي وصوتي على اللون والستيل اللي كيعجبك!">
-<meta property="og:image" content="cover.jpg"> 
+</head>
 <body>
-    <!-- Header Section -->
     <header class="header">
         <div class="container">
             <div class="logo">IDMISK</div>
@@ -22,49 +17,28 @@
         </div>
     </header>
     
-<style>
-.product-card {
-    display: block !important;
-    opacity: 1 !important;
-}
-</style>
-    <!-- Filter Section (NEW) -->
     <div class="filter-section">
         <div class="filter-scroll-container">
-            <button class="filter-chip active" data-category="all" onclick="filterColors('all')">
-                الكل ✨
-            </button>
-            <button class="filter-chip" data-category="earth" onclick="filterColors('earth')">
-                الترابيات 🤎
-            </button>
-            <button class="filter-chip" data-category="pink" onclick="filterColors('pink')">
-                الورديات 🌸
-            </button>
-            <button class="filter-chip" data-category="nature" onclick="filterColors('nature')">
-                الطبيعة 🍃
-            </button>
-            <button class="filter-chip" data-category="dark" onclick="filterColors('dark')">
-                الغامقة 🖤
-            </button>
+            <button class="filter-chip active" data-category="all" onclick="window.filterColors('all')">الكل ✨</button>
+            <button class="filter-chip" data-category="earth" onclick="window.filterColors('earth')">الترابيات 🤎</button>
+            <button class="filter-chip" data-category="pink" onclick="window.filterColors('pink')">الورديات 🌸</button>
+            <button class="filter-chip" data-category="nature" onclick="window.filterColors('nature')">الطبيعة 🍃</button>
+            <button class="filter-chip" data-category="dark" onclick="window.filterColors('dark')">الغامقة 🖤</button>
         </div>
     </div>
 
-    <!-- Products Grid -->
     <main class="main-content">
         <div class="container">
             <div class="products-grid">
-                <!-- الألوان الترابية -->
                 <div class="product-card" data-color="Dark Chocolate" data-category="earth">
                     <div class="image-wrapper">
                         <img src="3.png" alt="Dark Chocolate" loading="lazy">
                         <div class="watermark">IDMISK</div>
                     </div>
                     <h3 class="color-name">Dark Chocolate<br><span class="color-name-ar">بني شوكولا</span></h3>
-                    <button class="vote-btn" onclick="openModal('Dark Chocolate', 'بني شوكولا')">
-                        حبيتو ❤️
-                    </button>
+                    <button class="vote-btn" onclick="window.openModal('Dark Chocolate', 'بني شوكولا')">حبيتو ❤️</button>
                 </div>
-
+                
                 <div class="product-card" data-color="Camel" data-category="earth">
                     <div class="image-wrapper">
                         <img src="2.png" alt="Camel" loading="lazy">
@@ -131,7 +105,6 @@
                     </button>
                 </div>
 
-                <!-- الألوان الوردية والحمراء -->
                 <div class="product-card" data-color="Bois de Rose" data-category="pink">
                     <div class="image-wrapper">
                         <img src="Gemini_Generated_Image_ioz0h0ioz0h0ioz0.png" alt="Bois de Rose" loading="lazy">
@@ -220,7 +193,6 @@
                     </button>
                 </div>
 
-                <!-- الألوان الطبيعية والقوية -->
                 <div class="product-card" data-color="Vert Émeraude" data-category="nature">
                     <div class="image-wrapper">
                         <img src="Gemini_Generated_Image_w4wmkw4wmkw4wmkw.png" alt="Vert Émeraude" loading="lazy">
@@ -333,7 +305,7 @@
 
                 <div class="product-card" data-color="Dark Grey" data-category="dark">
                     <div class="image-wrapper">
-                        <img src="dark grey.png" alt="Dark Grey" loading="lazy">
+                        <img src="Dark Grey.png" alt="Dark Grey" loading="lazy">
                         <div class="watermark">IDMISK</div>
                     </div>
                     <h3 class="color-name">Dark Grey<br><span class="color-name-ar">الرمادي الغامق</span></h3>
@@ -367,73 +339,45 @@
         </div>
     </main>
 
-    <!-- Modal -->
     <div id="voteModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <span class="close-btn" onclick="window.closeModal()">&times;</span>
             <h2 class="modal-title">اختيار ممتاز! 😍</h2>
             <p class="modal-color">اللون: <span id="selectedColor"></span></p>
             
-            <!-- NEW: Style Selection -->
-           <p class="modal-question">أشمن ستيل كتلبسي؟</p>
+            <p class="modal-question">أشمن ستيل كتلبسي؟</p>
             <div class="style-options">
-                <label class="style-option">
-                    <input type="checkbox" name="style" value="chale"> <span>شال عادي (Châle)</span>
-                </label>
-                <label class="style-option">
-                    <input type="checkbox" name="style" value="pret-a-porter">
-                    <span>حجاب جاهز (Prêt-à-porter)</span>
-                </label>
-                <label class="style-option">
-                    <input type="checkbox" name="style" value="khimar">
-                    <span>خيمار</span>
-                </label>
+                <label class="style-option"><input type="checkbox" name="style" value="chale"> <span>شال عادي (Châle)</span></label>
+                <label class="style-option"><input type="checkbox" name="style" value="pret-a-porter"> <span>حجاب جاهز (Prêt-à-porter)</span></label>
+                <label class="style-option"><input type="checkbox" name="style" value="khimar"> <span>خيمار</span></label>
             </div>
 
             <p class="modal-question" style="margin-top: 20px;">أشمن ثوب كتفضلي فهاد اللون؟</p>
             <div class="fabric-options">
-                <label class="fabric-option">
-                    <input type="checkbox" name="fabric" value="soie">
-                    <span>حرير المدينة (Soie de Médine)</span>
-                </label>
-                <label class="fabric-option">
-                    <input type="checkbox" name="fabric" value="crepe">
-                    <span>كريب (Crêpe)</span>
-                </label>
-                <label class="fabric-option">
-                    <input type="checkbox" name="fabric" value="mousseline">
-                    <span>موسلين (Mousseline)</span>
-                </label>
-                <label class="fabric-option">
-                    <input type="checkbox" name="fabric" value="jazz">
-                    <span>جاز (Jazz)</span>
-                </label>
+                <label class="fabric-option"><input type="checkbox" name="fabric" value="soie"> <span>حرير المدينة (Soie de Médine)</span></label>
+                <label class="fabric-option"><input type="checkbox" name="fabric" value="crepe"> <span>كريب (Crêpe)</span></label>
+                <label class="fabric-option"><input type="checkbox" name="fabric" value="mousseline"> <span>موسلين (Mousseline)</span></label>
+                <label class="fabric-option"><input type="checkbox" name="fabric" value="jazz"> <span>جاز (Jazz)</span></label>
             </div>
 
-            <button class="confirm-btn" onclick="submitVote()">تأكيد صوتي ✅</button>
+            <button class="confirm-btn" onclick="window.submitVote()">تأكيد صوتي ✅</button>
         </div>
     </div>
 
-   <!-- Success Message -->
-<div id="successMessage" class="success-message">
-    <div class="success-content">
-        <h2>تصويتك وصل! 🎉</h2>
-        <p>بغيتي تكوني أول وحدة تعرف ملي نوجدوه؟</p>
-        <a href="https://www.instagram.com/idmisk.ma" target="_blank" class="insta-btn">
-            📸 تابعونا على الانستغرام
-        </a>
+    <div id="successMessage" class="success-message">
+        <div class="success-content">
+            <h2>تصويتك وصل! 🎉</h2>
+            <p>بغيتي تكوني أول وحدة تعرف ملي نوجدوه؟</p>
+            <a href="https://www.instagram.com/idmisk.ma" target="_blank" class="insta-btn">📸 تابعونا على الانستغرام</a>
+        </div>
     </div>
-</div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>© 2025 Idmisk. جميع الحقوق محفوظة.</p>
-            <a href="https://www.instagram.com/idmisk.ma" target="_blank" class="instagram-link">تابعونا على Instagram</a>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
-
 </html>
