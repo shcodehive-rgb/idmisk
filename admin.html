@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDMISK Admin (Firebase)</title>
+    <title>لوحة التحكم السرية</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f8; padding: 20px; direction: rtl; }
+        /* نخفيو الصفحة كاملة حتى يدخل الكود */
+        body { display: none; font-family: 'Segoe UI', sans-serif; background: #f4f6f8; padding: 20px; direction: rtl; }
         .container { max-width: 1000px; margin: 0 auto; }
         .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px; }
         h1 { color: #D4A574; text-align: center; }
@@ -14,10 +15,29 @@
         th, td { padding: 12px; text-align: right; border-bottom: 1px solid #eee; }
         th { background: #f8f9fa; }
     </style>
+    <script>
+        // ===========================
+        // 🔐 نظام الحماية البسيط
+        // ===========================
+        const myPassword = "idmisk-salah"; // <--- بدل هاد الكود باش ما بغيتي
+        
+        const userPass = prompt("🔐 هذه صفحة خاصة! المرجو إدخال الرمز السري:");
+        
+        if (userPass === myPassword) {
+            // إلا الكود صحيح، بيّن الصفحة
+            document.addEventListener("DOMContentLoaded", () => {
+                document.body.style.display = "block";
+            });
+        } else {
+            // إلا الكود غلط، رجعو للصفحة الرئيسية
+            alert("⛔ كود خاطئ! ممنوع الدخول.");
+            window.location.href = "index.html";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1>📊 لوحة التحكم (Firebase)</h1>
+        <h1>📊 لوحة التحكم (محمية)</h1>
         
         <div class="card">
             <h3>مجموع الأصوات: <span id="totalVotes" style="color: #D4A574; font-weight: bold; font-size: 1.5em;">0</span></h3>
@@ -61,7 +81,6 @@
         const db = getDatabase(app);
         let chartInstance = null;
 
-        // الاستماع للبيانات في الوقت الحقيقي
         const votesRef = ref(db, 'votes');
         onValue(votesRef, (snapshot) => {
             const data = snapshot.val();
@@ -69,7 +88,6 @@
 
             const votes = Object.values(data);
             document.getElementById('totalVotes').textContent = votes.length;
-            
             updateTable(votes);
             updateChart(votes);
         });
@@ -77,11 +95,10 @@
         function updateTable(votes) {
             const tbody = document.querySelector('#votesTable tbody');
             tbody.innerHTML = '';
-            // ترتيب عكسي (الجديد الفوق)
             votes.reverse().slice(0, 20).forEach(v => {
                 const row = `<tr>
                     <td style="font-weight:bold">${v.color_ar || v.color}</td>
-                    <td>${v.fabrics.join(', ')}</td>
+                    <td>${v.fabrics ? v.fabrics.join(', ') : ''}</td>
                     <td style="color:#888; font-size:0.9em">${new Date(v.date).toLocaleTimeString('ar-MA')}</td>
                 </tr>`;
                 tbody.innerHTML += row;
