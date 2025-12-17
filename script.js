@@ -19,9 +19,9 @@ document.addEventListener('contextmenu', e => {
 });
 
 // ===========================
-// Filter Function
+// Filter Function (Global)
 // ===========================
-function filterColors(category) {
+window.filterColors = function(category) {
     document.querySelectorAll('.filter-chip').forEach(btn => {
         if (btn.dataset.category === category) {
             btn.classList.add('active');
@@ -44,9 +44,9 @@ function filterColors(category) {
 }
 
 // ===========================
-// Modal Functions
+// Modal Functions (Global)
 // ===========================
-function openModal(colorName, colorArabic) {
+window.openModal = function(colorName, colorArabic) {
     selectedColorName = colorName;
     selectedColorArabic = colorArabic;
     
@@ -59,7 +59,7 @@ function openModal(colorName, colorArabic) {
     document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
+window.closeModal = function() {
     const modal = document.getElementById('voteModal');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
@@ -72,9 +72,9 @@ window.onclick = e => {
 }
 
 // ===========================
-// Submit Vote to Supabase
+// Submit Vote to Supabase (Global)
 // ===========================
-async function submitVote() {
+window.submitVote = async function() {
     const styles = [];
     document.querySelectorAll('.style-option input:checked').forEach(cb => {
         styles.push(cb.value);
@@ -165,6 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('✅ IDMISK System Ready (Supabase)');
     console.log('📊 Database: Supabase');
+    console.log('🌐 Functions: Global');
 });
 
 const style = document.createElement('style');
