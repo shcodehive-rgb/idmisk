@@ -907,10 +907,3 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
-
-/* CRITICAL FIX */
-.product-card {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
