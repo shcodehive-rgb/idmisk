@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صممي كوليكسيون Idmisk الأولى</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta property="og:title" content="صممي كوليكسيون Idmisk الأولى بنفسك! 😍">
+<meta property="og:description" content="حنا كنوجدو أروع تشكيلة حجاب. ادخلي وصوتي على اللون والستيل اللي كيعجبك!">
+<meta property="og:image" content="cover.jpg"> 
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">IDMISK</div>
+            <h1 class="main-title">صممي كوليكسيون Idmisk الأولى بنفسك!</h1>
+            <p class="subtitle">حنا كنوجدو أروع تشكيلة حجاب، وبغينا ذوقك يكملنا. صوتي على اللون اللي كيحمقك وحنا نوفروه ليك.</p>
+        </div>
+    </header>
+    
+<style>
+.product-card {
+    display: block !important;
+    opacity: 1 !important;
+}
+</style>
+    <!-- Filter Section (NEW) -->
+    <div class="filter-section">
+        <div class="filter-scroll-container">
+            <button class="filter-chip active" data-category="all" onclick="filterColors('all')">
+                الكل ✨
+            </button>
+            <button class="filter-chip" data-category="earth" onclick="filterColors('earth')">
+                الترابيات 🤎
+            </button>
+            <button class="filter-chip" data-category="pink" onclick="filterColors('pink')">
+                الورديات 🌸
+            </button>
+            <button class="filter-chip" data-category="nature" onclick="filterColors('nature')">
+                الطبيعة 🍃
+            </button>
+            <button class="filter-chip" data-category="dark" onclick="filterColors('dark')">
+                الغامقة 🖤
+            </button>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <main class="main-content">
+        <div class="container">
+            <div class="products-grid">
+                <!-- الألوان الترابية -->
+                <div class="product-card" data-color="Dark Chocolate" data-category="earth">
+                    <div class="image-wrapper">
+                        <img src="3.png" alt="Dark Chocolate" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Dark Chocolate<br><span class="color-name-ar">بني شوكولا</span></h3>
+                    <button class="vote-btn" onclick="openModal('Dark Chocolate', 'بني شوكولا')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Camel" data-category="earth">
+                    <div class="image-wrapper">
+                        <img src="2.png" alt="Camel" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Camel<br><span class="color-name-ar">كاميل</span></h3>
+                    <button class="vote-btn" onclick="openModal('Camel', 'كاميل')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Beige Latte" data-category="earth">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_4gzvw44gzvw44gzv.png" alt="Beige Latte" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Beige Latte<br><span class="color-name-ar">بيج لاتيه</span></h3>
+                    <button class="vote-btn" onclick="openModal('Beige Latte', 'بيج لاتيه')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Beige Sable" data-category="earth">
+                    <div class="image-wrapper">
+                        <img src="11.png" alt="Beige Sable" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Beige Sable<br><span class="color-name-ar">رملي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Beige Sable', 'رملي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Off-White" data-category="earth">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_ph6nu6ph6nu6ph6n.png" alt="Off-White" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Off-White<br><span class="color-name-ar">أبيض مهرس</span></h3>
+                    <button class="vote-btn" onclick="openModal('Off-White', 'أبيض مهرس')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Blanc Cassé" data-category="earth">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_5f3vot5f3vot5f3v.png" alt="Blanc Cassé" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Blanc<br><span class="color-name-ar">أبيض </span></h3>
+                    <button class="vote-btn" onclick="openModal('Blanc Cassé', 'أبيض ')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Gris Souris" data-category="earth">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_3zrr7z3zrr7z3zrr.png" alt="Gris Souris" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Gris Souris<br><span class="color-name-ar">رمادي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Gris Souris', 'رمادي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <!-- الألوان الوردية والحمراء -->
+                <div class="product-card" data-color="Bois de Rose" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_ioz0h0ioz0h0ioz0.png" alt="Bois de Rose" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Bois de Rose<br><span class="color-name-ar">خشب الورد</span></h3>
+                    <button class="vote-btn" onclick="openModal('Bois de Rose', 'خشب الورد')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Vieux Rose" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_ifcw3ifcw3ifcw3i.png" alt="Vieux Rose" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Vieux Rose<br><span class="color-name-ar">وردي عتيق</span></h3>
+                    <button class="vote-btn" onclick="openModal('Vieux Rose', 'وردي عتيق')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Nude Rosé" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_klef4jklef4jklef.png" alt="Nude Rosé" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Nude Rosé<br><span class="color-name-ar">نيود وردي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Nude Rosé', 'نيود وردي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Terracotta" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_fx304tfx304tfx30.png" alt="Terracotta" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Terracotta<br><span class="color-name-ar">تيراكوتا</span></h3>
+                    <button class="vote-btn" onclick="openModal('Terracotta', 'تيراكوتا')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Bordeaux" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_sfzoezsfzoezsfzo.png" alt="Bordeaux" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Bordeaux<br><span class="color-name-ar">بوردو</span></h3>
+                    <button class="vote-btn" onclick="openModal('Bordeaux', 'بوردو')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Mauve Foncé" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_rn47ejrn47ejrn47.png" alt="Mauve Foncé" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Mauve Foncé<br><span class="color-name-ar">موف غامق</span></h3>
+                    <button class="vote-btn" onclick="openModal('Mauve Foncé', 'موف غامق')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Violet Royal" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_9see5v9see5v9see.png" alt="Violet Royal" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Violet Royal<br><span class="color-name-ar">بنفسجي ملكي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Violet Royal', 'بنفسجي ملكي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Prune" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_y7t57my7t57my7t5.png" alt="Prune" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Prune<br><span class="color-name-ar">باذنجاني</span></h3>
+                    <button class="vote-btn" onclick="openModal('Prune', 'باذنجاني')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <!-- الألوان الطبيعية والقوية -->
+                <div class="product-card" data-color="Vert Émeraude" data-category="nature">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_w4wmkw4wmkw4wmkw.png" alt="Vert Émeraude" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Vert Émeraude<br><span class="color-name-ar">أخضر ملكي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Vert Émeraude', 'أخضر ملكي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Vert Olive" data-category="nature">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_ow7hiow7hiow7hio.png" alt="Vert Olive" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Vert Olive<br><span class="color-name-ar">زيتوني</span></h3>
+                    <button class="vote-btn" onclick="openModal('Vert Olive', 'زيتوني')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Khaki" data-category="nature">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_kcf3hfkcf3hfkcf3.png" alt="Khaki" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Khaki<br><span class="color-name-ar">كاكي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Khaki', 'كاكي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Sage Green" data-category="nature">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_lgh0bblgh0bblgh0.png" alt="Sage Green" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Sage Green<br><span class="color-name-ar">أخضر مائي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Sage Green', 'أخضر مائي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Menthe" data-category="nature">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_eldb90eldb90eldb.png" alt="Menthe" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Menthe<br><span class="color-name-ar">مينت</span></h3>
+                    <button class="vote-btn" onclick="openModal('Menthe', 'مينت')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Bleu Nuit" data-category="dark">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_tqiam2tqiam2tqia.png" alt="Bleu Nuit" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Bleu Nuit<br><span class="color-name-ar">أزرق ليلي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Bleu Nuit', 'أزرق ليلي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Bleu Canard" data-category="dark">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_4pd9gg4pd9gg4pd9.png" alt="Bleu Canard" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Bleu Canard<br><span class="color-name-ar">أزرق الطاووس</span></h3>
+                    <button class="vote-btn" onclick="openModal('Bleu Canard', 'أزرق الطاووس')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Bleu Ciel" data-category="nature">
+                    <div class="image-wrapper">
+                        <img src="bleu.png" alt="Bleu Ciel" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Bleu Ciel<br><span class="color-name-ar">أزرق سماوي</span></h3>
+                    <button class="vote-btn" onclick="openModal('Bleu Ciel', 'أزرق سماوي')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Slate Grey" data-category="dark">
+                    <div class="image-wrapper">
+                        <img src="Slate Grey.png" alt="Slate Grey" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Slate Grey<br><span class="color-name-ar">رمادي أزرق</span></h3>
+                    <button class="vote-btn" onclick="openModal('Slate Grey', 'رمادي أزرق')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Noir" data-category="dark">
+                    <div class="image-wrapper">
+                        <img src="Noir.png" alt="Noir" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Noir<br><span class="color-name-ar">الأسود</span></h3>
+                    <button class="vote-btn" onclick="openModal('Noir', 'الأسود')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Dark Grey" data-category="dark">
+                    <div class="image-wrapper">
+                        <img src="dark grey.png" alt="Dark Grey" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Dark Grey<br><span class="color-name-ar">الرمادي الغامق</span></h3>
+                    <button class="vote-btn" onclick="openModal('Dark Grey', 'الرمادي الغامق')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Light Purple" data-category="pink">
+                    <div class="image-wrapper">
+                        <img src="Light Purple.png" alt="light Purple" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Light Purple<br><span class="color-name-ar">الموف الفاتح</span></h3>
+                    <button class="vote-btn" onclick="openModal('Light Purple', 'الموف الفاتح')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+
+                <div class="product-card" data-color="Moutarde" data-category="nature">
+                    <div class="image-wrapper">
+                        <img src="Gemini_Generated_Image_f6dl61f6dl61f6dl.png" alt="Moutarde" loading="lazy">
+                        <div class="watermark">IDMISK</div>
+                    </div>
+                    <h3 class="color-name">Moutarde<br><span class="color-name-ar">أصفر موطارد</span></h3>
+                    <button class="vote-btn" onclick="openModal('Moutarde', 'أصفر موطارد')">
+                        حبيتو ❤️
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="voteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">اختيار ممتاز! 😍</h2>
+            <p class="modal-color">اللون: <span id="selectedColor"></span></p>
+            
+            <!-- NEW: Style Selection -->
+           <p class="modal-question">أشمن ستيل كتلبسي؟</p>
+            <div class="style-options">
+                <label class="style-option">
+                    <input type="checkbox" name="style" value="chale"> <span>شال عادي (Châle)</span>
+                </label>
+                <label class="style-option">
+                    <input type="checkbox" name="style" value="pret-a-porter">
+                    <span>حجاب جاهز (Prêt-à-porter)</span>
+                </label>
+                <label class="style-option">
+                    <input type="checkbox" name="style" value="khimar">
+                    <span>خيمار</span>
+                </label>
+            </div>
+
+            <p class="modal-question" style="margin-top: 20px;">أشمن ثوب كتفضلي فهاد اللون؟</p>
+            <div class="fabric-options">
+                <label class="fabric-option">
+                    <input type="checkbox" name="fabric" value="soie">
+                    <span>حرير المدينة (Soie de Médine)</span>
+                </label>
+                <label class="fabric-option">
+                    <input type="checkbox" name="fabric" value="crepe">
+                    <span>كريب (Crêpe)</span>
+                </label>
+                <label class="fabric-option">
+                    <input type="checkbox" name="fabric" value="mousseline">
+                    <span>موسلين (Mousseline)</span>
+                </label>
+                <label class="fabric-option">
+                    <input type="checkbox" name="fabric" value="jazz">
+                    <span>جاز (Jazz)</span>
+                </label>
+            </div>
+
+            <button class="confirm-btn" onclick="submitVote()">تأكيد صوتي ✅</button>
+        </div>
+    </div>
+
+   <!-- Success Message -->
+<div id="successMessage" class="success-message">
+    <div class="success-content">
+        <h2>تصويتك وصل! 🎉</h2>
+        <p>بغيتي تكوني أول وحدة تعرف ملي نوجدوه؟</p>
+        <a href="https://www.instagram.com/idmisk.ma" target="_blank" class="insta-btn">
+            📸 تابعونا على الانستغرام
+        </a>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Idmisk. جميع الحقوق محفوظة.</p>
+            <a href="https://www.instagram.com/idmisk.ma" target="_blank" class="instagram-link">تابعونا على Instagram</a>
+        </div>
+    </footer>
+
+    <script src="script-FINAL-DB.js"></script>
+</body>
+</html>
