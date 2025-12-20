@@ -203,39 +203,41 @@ function showQuickHint() {
     setTimeout(() => hint.remove(), 3000);
 }
 // ===========================
-// Welcome Guide Functions
+// Welcome Guide - Event Listener Method
 // ===========================
 
-// دالة إغلاق الدليل (MUST be on window)
-window.closeWelcomeGuide = function() {
+function initWelcomeGuide() {
     const modal = document.getElementById('welcomeGuideModal');
     if (!modal) {
-        console.error('❌ Welcome modal not found!');
+        console.warn('⚠️ welcomeGuideModal not found');
         return;
     }
-    
-    modal.style.opacity = '0';
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
-    
-    // نسجلو بلي شاف الدليل
-    sessionStorage.setItem('hasSeenGuide', 'true');
-    console.log('✅ Guide closed');
-};
 
-// التحقق عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Page loaded');
+    // دالة الإغلاق
+    function closeGuide() {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+        sessionStorage.setItem('hasSeenGuide', 'true');
+        console.log('✅ Guide closed');
+    }
+
+    // ربط الأزرار بـ Event Listeners
+    const startBtn = modal.querySelector('.start-btn-primary');
+    const skipBtn = modal.querySelector('.skip-btn');
     
-    // التحقق من الدليل
-    const modal = document.getElementById('welcomeGuideModal');
-    if (!modal) {
-        console.warn('⚠️ welcomeGuideModal not found in HTML');
-        return;
+    if (startBtn) {
+        startBtn.addEventListener('click', closeGuide);
+        console.log('✅ Start button linked');
     }
     
-    // إذا كان المستخدم شاف الدليل قبل
+    if (skipBtn) {
+        skipBtn.addEventListener('click', closeGuide);
+        console.log('✅ Skip button linked');
+    }
+
+    // عرض أو إخفاء الدليل
     if (sessionStorage.getItem('hasSeenGuide')) {
         modal.style.display = 'none';
         console.log('ℹ️ User already seen guide');
@@ -243,6 +245,24 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'flex';
         console.log('👋 Showing welcome guide');
     }
+}
+
+// تشغيل الدليل عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    // تشغيل الدليل
+    initWelcomeGuide();
     
-    // ... باقي الكود ديالك (animations, etc.)
+    // باقي الكود ديالك...
+    document.querySelectorAll('img').forEach(img => {
+        img.draggable = false;
+        img.style.userSelect = 'none';
+    });
+    
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach((card, index) => {
+        card.style.animation = `fadeInUp 0.6s ease ${index * 0.05}s forwards`;
+        card.style.opacity = '0';
+    });
+    
+    console.log('✅ IDMISK System Ready');
 });
