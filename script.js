@@ -1,4 +1,3 @@
-
 // ===========================
 // IDMISK - Firebase Backend (FINAL)
 // ===========================
@@ -7,7 +6,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-// 2. إعدادات المشروع (من التصويرة اللي صيفطتي)
+// 2. إعدادات المشروع
 const firebaseConfig = {
   apiKey: "AIzaSyDRhrHeOMbLNbfrrltPrRqfcDD6qXDAktT0",
   authDomain: "idmisk-votes.firebaseapp.com",
@@ -30,10 +29,41 @@ let selectedColorName = '';
 let selectedColorArabic = '';
 
 // ===========================
+// Welcome Guide System
+// ===========================
+function initWelcomeGuide() {
+    const modal = document.getElementById('welcomeGuideModal');
+    if (!modal) {
+        console.warn('⚠️ welcomeGuideModal not found');
+        return;
+    }
+
+    function closeGuide() {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+        sessionStorage.setItem('hasSeenGuide', 'true');
+        console.log('✅ Guide closed');
+    }
+
+    const startBtn = modal.querySelector('.start-btn-primary');
+    const skipBtn = modal.querySelector('.skip-btn');
+    
+    if (startBtn) startBtn.addEventListener('click', closeGuide);
+    if (skipBtn) skipBtn.addEventListener('click', closeGuide);
+
+    if (sessionStorage.getItem('hasSeenGuide')) {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'flex';
+    }
+}
+
+// ===========================
 // دوال النظام (System Functions)
 // ===========================
 
-// جعل الدوال متاحة للصفحة (Global)
 window.filterColors = function(category) {
     document.querySelectorAll('.filter-chip').forEach(btn => {
         if (btn.dataset.category === category) btn.classList.add('active');
@@ -83,7 +113,6 @@ window.submitVote = async function() {
     btn.disabled = true;
 
     try {
-        // إرسال البيانات لقاعدة البيانات الحقيقية
         await push(ref(db, 'votes'), {
             color: selectedColorName,
             color_ar: selectedColorArabic,
@@ -112,10 +141,15 @@ function showSuccessMessage() {
         msg.style.display = 'none';
     }, 4000);
 }
+
 // ===========================
 // Initialize
 // ===========================
 document.addEventListener('DOMContentLoaded', function() {
+    // تشغيل Welcome Guide
+    initWelcomeGuide();
+    
+    // باقي التهيئة
     document.querySelectorAll('img').forEach(img => {
         img.draggable = false;
         img.style.userSelect = 'none';
@@ -138,131 +172,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
-// في نهاية script.js
-// Highlight أول بطاقة لجذب الانتباه
-document.addEventListener('DOMContentLoaded', function() {
-    // ... الكود الموجود ...
-    
-    // إذا كان المستخدم جديد، نحركو أول بطاقة
-    if (!sessionStorage.getItem('hasSeenGuide')) {
-        setTimeout(() => {
-            const firstCard = document.querySelector('.product-card');
-            if (firstCard) {
-                firstCard.style.animation = 'pulse-attention 2s ease-in-out 3';
-            }
-        }, 5000); // بعد 5 ثواني من الدخول
-    }
-});
-
-// Animation للفت الانتباه
-const pulseStyle = document.createElement('style');
-pulseStyle.textContent = `
-    @keyframes pulse-attention {
-        0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        50% { transform: scale(1.02); box-shadow: 0 8px 24px rgba(210, 105, 30, 0.3); }
-    }
-`;
-document.head.appendChild(pulseStyle);
-
-// Tooltip لزر "حبيتو" للمستخدمين الجدد
-window.openModal = function(colorName, colorArabic) {
-    selectedColorName = colorName;
-    selectedColorArabic = colorArabic;
-    document.getElementById('selectedColor').textContent = `${colorName} (${colorArabic})`;
-    document.getElementById('voteModal').style.display = 'block';
-    
-    // إذا كانت أول مرة يفتح modal
-    if (!sessionStorage.getItem('hasOpenedModal')) {
-        sessionStorage.setItem('hasOpenedModal', 'true');
-        // نضيفو hint صغير
-        showQuickHint();
-    }
-};
-
-function showQuickHint() {
-    const hint = document.createElement('div');
-    hint.className = 'quick-hint';
-    hint.innerHTML = '👈 اختاري الستيل والثوب ثم أكدي';
-    hint.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #4CAF50;
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        font-size: 1.1rem;
-        z-index: 10001;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        animation: fadeInOut 3s forwards;
-    `;
-    document.body.appendChild(hint);
-    
-    setTimeout(() => hint.remove(), 3000);
-}
-// ===========================
-// Welcome Guide - Event Listener Method
-// ===========================
-
-function initWelcomeGuide() {
-    const modal = document.getElementById('welcomeGuideModal');
-    if (!modal) {
-        console.warn('⚠️ welcomeGuideModal not found');
-        return;
-    }
-
-    // دالة الإغلاق
-    function closeGuide() {
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 300);
-        sessionStorage.setItem('hasSeenGuide', 'true');
-        console.log('✅ Guide closed');
-    }
-
-    // ربط الأزرار بـ Event Listeners
-    const startBtn = modal.querySelector('.start-btn-primary');
-    const skipBtn = modal.querySelector('.skip-btn');
-    
-    if (startBtn) {
-        startBtn.addEventListener('click', closeGuide);
-        console.log('✅ Start button linked');
-    }
-    
-    if (skipBtn) {
-        skipBtn.addEventListener('click', closeGuide);
-        console.log('✅ Skip button linked');
-    }
-
-    // عرض أو إخفاء الدليل
-    if (sessionStorage.getItem('hasSeenGuide')) {
-        modal.style.display = 'none';
-        console.log('ℹ️ User already seen guide');
-    } else {
-        modal.style.display = 'flex';
-        console.log('👋 Showing welcome guide');
-    }
-}
-
-// تشغيل الدليل عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    // تشغيل الدليل
-    initWelcomeGuide();
-    
-    // باقي الكود ديالك...
-    document.querySelectorAll('img').forEach(img => {
-        img.draggable = false;
-        img.style.userSelect = 'none';
-    });
-    
-    const cards = document.querySelectorAll('.product-card');
-    cards.forEach((card, index) => {
-        card.style.animation = `fadeInUp 0.6s ease ${index * 0.05}s forwards`;
-        card.style.opacity = '0';
-    });
-    
-    console.log('✅ IDMISK System Ready');
-});
