@@ -907,3 +907,76 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Welcome Guide Specific Styles */
+.guide-content {
+    max-width: 600px;
+    text-align: center;
+    background: #fff url('https://www.transparenttextures.com/patterns/cubes.png'); /* Pattern خفيف اختياري */
+}
+
+.guide-header h2 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.guide-header p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.guide-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    text-align: right; /* باش يجي الشرح مقاد بالعربية */
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #FFF8F3;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s;
+}
+
+.step:hover {
+    transform: translateX(-5px);
+    border-color: var(--primary-color);
+}
+
+.step-icon {
+    font-size: 2rem;
+    background: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.step-text h3 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.step-text p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.start-btn {
+    font-size: 1.3rem;
+    padding: 15px;
+    animation: pulse 2s infinite;
+}
