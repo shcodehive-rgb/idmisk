@@ -586,18 +586,15 @@
             <p>© 2025 Idmisk. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
-
-  <!-- نبدلو الـ Modal ديال الترحيب بهذا -->
-<div id="welcomeGuideModal" class="modal" style="display: flex;">
+<!-- Welcome Guide Modal - EVENT LISTENER VERSION -->
+<div id="welcomeGuideModal" class="modal" style="display: none;">
     <div class="modal-content guide-modern">
-        <!-- Header مختصر -->
         <div class="guide-modern-header">
             <span class="emoji-large">💝</span>
             <h2>شاركي معانا فاختيار الألوان الجديدة!</h2>
             <p>ثلاث خطوات فقط ⚡</p>
         </div>
         
-        <!-- خطوات بتصميم عصري -->
         <div class="quick-steps">
             <div class="quick-step">
                 <span class="step-number">1</span>
@@ -620,21 +617,24 @@
             </div>
         </div>
         
-        <!-- زر البداية -->
+        <!-- الأزرار بدون onclick -->
         <div class="guide-actions">
-            <button class="start-btn-primary" onclick="closeWelcomeGuide()">
+            <button class="start-btn-primary">
                 يلاه نبدأ! 🚀
             </button>
-            <button class="skip-btn" onclick="closeWelcomeGuide()">تجاوز</button>
+            <button class="skip-btn">
+                تجاوز
+            </button>
         </div>
         
-        <!-- Indicator صغير -->
         <p class="guide-note">⏱️ يستغرق أقل من دقيقة</p>
     </div>
 </div>
-    <script type="module" src="script.js"></script>
+ 
+   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
