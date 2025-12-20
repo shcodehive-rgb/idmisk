@@ -202,3 +202,47 @@ function showQuickHint() {
     
     setTimeout(() => hint.remove(), 3000);
 }
+// ===========================
+// Welcome Guide Functions
+// ===========================
+
+// دالة إغلاق الدليل (MUST be on window)
+window.closeWelcomeGuide = function() {
+    const modal = document.getElementById('welcomeGuideModal');
+    if (!modal) {
+        console.error('❌ Welcome modal not found!');
+        return;
+    }
+    
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+    
+    // نسجلو بلي شاف الدليل
+    sessionStorage.setItem('hasSeenGuide', 'true');
+    console.log('✅ Guide closed');
+};
+
+// التحقق عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Page loaded');
+    
+    // التحقق من الدليل
+    const modal = document.getElementById('welcomeGuideModal');
+    if (!modal) {
+        console.warn('⚠️ welcomeGuideModal not found in HTML');
+        return;
+    }
+    
+    // إذا كان المستخدم شاف الدليل قبل
+    if (sessionStorage.getItem('hasSeenGuide')) {
+        modal.style.display = 'none';
+        console.log('ℹ️ User already seen guide');
+    } else {
+        modal.style.display = 'flex';
+        console.log('👋 Showing welcome guide');
+    }
+    
+    // ... باقي الكود ديالك (animations, etc.)
+});
