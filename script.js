@@ -139,27 +139,66 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Function to Close the Guide
-window.closeWelcomeGuide = function() {
-    const modal = document.getElementById('welcomeGuideModal');
-    modal.style.opacity = '0';
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
+// في نهاية script.js
+// Highlight أول بطاقة لجذب الانتباه
+document.addEventListener('DOMContentLoaded', function() {
+    // ... الكود الموجود ...
     
-    // نسجلو بلي راه شاف الدليل باش مايعاودش يطلع ليه
-    sessionStorage.setItem('hasSeenGuide', 'true');
+    // إذا كان المستخدم جديد، نحركو أول بطاقة
+    if (!sessionStorage.getItem('hasSeenGuide')) {
+        setTimeout(() => {
+            const firstCard = document.querySelector('.product-card');
+            if (firstCard) {
+                firstCard.style.animation = 'pulse-attention 2s ease-in-out 3';
+            }
+        }, 5000); // بعد 5 ثواني من الدخول
+    }
+});
+
+// Animation للفت الانتباه
+const pulseStyle = document.createElement('style');
+pulseStyle.textContent = `
+    @keyframes pulse-attention {
+        0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        50% { transform: scale(1.02); box-shadow: 0 8px 24px rgba(210, 105, 30, 0.3); }
+    }
+`;
+document.head.appendChild(pulseStyle);
+
+// Tooltip لزر "حبيتو" للمستخدمين الجدد
+window.openModal = function(colorName, colorArabic) {
+    selectedColorName = colorName;
+    selectedColorArabic = colorArabic;
+    document.getElementById('selectedColor').textContent = `${colorName} (${colorArabic})`;
+    document.getElementById('voteModal').style.display = 'block';
+    
+    // إذا كانت أول مرة يفتح modal
+    if (!sessionStorage.getItem('hasOpenedModal')) {
+        sessionStorage.setItem('hasOpenedModal', 'true');
+        // نضيفو hint صغير
+        showQuickHint();
+    }
 };
 
-// Check on Load
-document.addEventListener('DOMContentLoaded', function() {
-    // كنشوفو واش ديجا شاف الدليل ولا لا
-    if (!sessionStorage.getItem('hasSeenGuide')) {
-        // إلا كان جديد، كنخليو المودال يبان (هو أصلاً display: flex فالـ HTML)
-    } else {
-        // إلا كان ديجا شافو، كنخبيوه ديريكت
-        document.getElementById('welcomeGuideModal').style.display = 'none';
-    }
+function showQuickHint() {
+    const hint = document.createElement('div');
+    hint.className = 'quick-hint';
+    hint.innerHTML = '👈 اختاري الستيل والثوب ثم أكدي';
+    hint.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #4CAF50;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        z-index: 10001;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        animation: fadeInOut 3s forwards;
+    `;
+    document.body.appendChild(hint);
     
-    // ... باقي الكود ديالك ...
-});
+    setTimeout(() => hint.remove(), 3000);
+}
