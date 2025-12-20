@@ -138,3 +138,28 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Function to Close the Guide
+window.closeWelcomeGuide = function() {
+    const modal = document.getElementById('welcomeGuideModal');
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+    
+    // نسجلو بلي راه شاف الدليل باش مايعاودش يطلع ليه
+    sessionStorage.setItem('hasSeenGuide', 'true');
+};
+
+// Check on Load
+document.addEventListener('DOMContentLoaded', function() {
+    // كنشوفو واش ديجا شاف الدليل ولا لا
+    if (!sessionStorage.getItem('hasSeenGuide')) {
+        // إلا كان جديد، كنخليو المودال يبان (هو أصلاً display: flex فالـ HTML)
+    } else {
+        // إلا كان ديجا شافو، كنخبيوه ديريكت
+        document.getElementById('welcomeGuideModal').style.display = 'none';
+    }
+    
+    // ... باقي الكود ديالك ...
+});
